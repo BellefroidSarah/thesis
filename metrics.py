@@ -32,19 +32,19 @@ def confusion(prediction, truth):
 
 def precision(prediction, groundtruth):
     tp, fp, tn, fn = confusion(prediction, groundtruth)
-    return tp / (tp + fp)
+    return tp / (tp + fp + 0.00000001)
 
 
 def recall(prediction, groundtruth):
     tp, fp, tn, fn = confusion(prediction, groundtruth)
-    return tp / (tp + fn)
+    return tp / (tp + fn + 0.00000001)
 
 
 def F1Score(prediction, groundtruth):
     tp, fp, tn, fn = confusion(prediction, groundtruth)
-    return (2 * tp) / (2 * tp + fp + fn)
+    return (2 * tp) / (2 * tp + fp + fn + 0.00000001)
 
 
 def IOUScore(prediction, groundtruth):
     tp, fp, tn, fn = confusion(prediction, groundtruth)
-    return tp / (tp + fp + fn)
+    return tp / (tp + fp + fn + 0.00000001)

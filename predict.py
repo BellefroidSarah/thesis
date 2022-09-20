@@ -26,6 +26,7 @@ def predict_img(net, img, device, transform, out_threshold=0.5):
 
 if __name__ == "__main__":
     SIZE = (384, 512)
+    #SIZE = (512, 512)
     DEVICE = torch.device("cpu")
 
     name = "upper_vertebrae_CE_ADAM_LR0.002_WD0_Params_Epoch15_BS4_W0_BEST_Epoch13_Val0.00764998427725264"
