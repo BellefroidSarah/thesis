@@ -14,9 +14,12 @@ class DoubleConv(nn.Module):
     def __init__(self, in_ch, out_ch):
         super(DoubleConv, self).__init__()
         self.net = nn.Sequential(
+            # Basic no batch
             nn.Conv2d(in_ch, out_ch, kernel_size=3, padding=1),
+            nn.BatchNorm2d(out_ch),
             nn.ReLU(),
             nn.Conv2d(out_ch, out_ch, kernel_size=3, padding=1),
+            nn.BatchNorm2d(out_ch),
             nn.ReLU()
         )
 
@@ -29,7 +32,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
         self.net = nn.Sequential(
             DoubleConv(in_ch, out_ch),
-            nn.BatchNorm2d(out_ch),
+            # nn.BatchNorm2d(out_ch),    remove?
             # nn.MaxPool2d(2)
         )
 
