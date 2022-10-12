@@ -1,5 +1,3 @@
-
-
 # https://stackoverflow.com/questions/2130016/splitting-a-list-into-n-parts-of-approximately-equal-length
 
 def split(a, n):

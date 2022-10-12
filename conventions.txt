@@ -1,0 +1,11 @@
+Naming convention for model names:
+    -Term studied
+    -Loss fct used
+    -Fold number
+    -Best epoch number
+    -Max epochs to train
+    -Optimizer name
+    -LR (at least starting LR)
+    
+Fold number= [0, 1, 2, 3, 4]
+Epoch starts at 1 and ends max at Max Epoch

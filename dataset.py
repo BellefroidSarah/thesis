@@ -84,8 +84,10 @@ class ZebrafishDataset_KFold(torch.utils.data.Dataset):
                     self.dataset = self.dataset + self.files[i]
         elif dataset == "validate":
             self.dataset = self.files[actual_fold]
+        elif dataset == "pre-test":
+            self.dataset = self.files[-2]
         elif dataset == "test":
-            self.dataset = self.files[folds]
+            self.dataset = self.files[-1]
 
         random.shuffle(self.dataset)
 
@@ -108,12 +110,11 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
     # Can output the 3 different types of dataset
     # actual fold between 0 and folds - 1
     def __init__(self, img_dir, mask_dir, actual_fold, dataset="train", folds=5):
-        """Initialzes a dataset with all the images in the directory img_dir."""
         super().__init__()
         self.imgs = img_dir
         self.masks = mask_dir
         self.transform = transforms.ToTensor()
-        self.fold_div = folds + 1
+        self.fold_div = folds + 2
 
         self.files = [file for file in os.listdir(self.masks) if file in os.listdir(self.imgs)]
         self.files = [file for file in os.listdir(self.masks) if ((file in os.listdir(self.imgs)) and ("v" in file))]
@@ -129,8 +130,11 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
         elif dataset == "validate":
             self.dataset = self.files[actual_fold]
             print("Validation set length: {}".format(len(self.dataset)))
+        elif dataset == "pre-test":
+            self.dataset = self.files[-2]
+            print("Pre-testing set length: {}".format(len(self.dataset)))
         elif dataset == "test":
-            self.dataset = self.files[folds]
+            self.dataset = self.files[-1]
             print("Testing set length: {}".format(len(self.dataset)))
         random.shuffle(self.dataset)
 
@@ -147,3 +151,4 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
         ms = self.transform(mask)
         mask.close()
         return im[:3, :, :], ms, file
+    
