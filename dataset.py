@@ -73,6 +73,7 @@ class ZebrafishDataset_KFold(torch.utils.data.Dataset):
         self.transform = transforms.ToTensor()
         self.fold_div = folds + 1
 
+        #self.files = [file for file in os.listdir(self.imgs) if "lat" in file]
         self.files = [file for file in os.listdir(self.imgs)]
         self.files = list(U.split(self.files, self.fold_div))
 
@@ -115,6 +116,7 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
         self.fold_div = folds + 1
 
         self.files = [file for file in os.listdir(self.masks) if file in os.listdir(self.imgs)]
+        self.files = [file for file in os.listdir(self.masks) if ((file in os.listdir(self.imgs)) and ("v" in file))]
         self.files = list(U.split(self.files, self.fold_div))
         #print(self.files)
 
