@@ -9,3 +9,11 @@ Naming convention for model names:
     
 Fold number= [0, 1, 2, 3, 4]
 Epoch starts at 1 and ends max at Max Epoch
+
+
+
+Ref:
+https://www.kaggle.com/code/bigironsphere/loss-function-library-keras-pytorch/notebook
+https://kornia.readthedocs.io/en/v0.1.2/losses.html
+https://my.fsa-student.uliege.be/cms/c_4316605/fr/myfsastudent-travail-de-fin-d-etudes-tfe
+https://towardsdatascience.com/dealing-with-class-imbalanced-image-datasets-1cbd17de76b5

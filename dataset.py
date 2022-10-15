@@ -85,7 +85,8 @@ class ZebrafishDataset_KFold(torch.utils.data.Dataset):
         elif dataset == "validate":
             self.dataset = self.files[actual_fold]
         elif dataset == "pre-test":
-            self.dataset = self.files[-2]
+            # Pre test not implemented actually
+            self.dataset = self.files[-1]
         elif dataset == "test":
             self.dataset = self.files[-1]
 
@@ -114,10 +115,10 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
         self.imgs = img_dir
         self.masks = mask_dir
         self.transform = transforms.ToTensor()
-        self.fold_div = folds + 2
+        self.fold_div = folds + 1 # 2 if pre test implemented
 
         self.files = [file for file in os.listdir(self.masks) if file in os.listdir(self.imgs)]
-        self.files = [file for file in os.listdir(self.masks) if ((file in os.listdir(self.imgs)) and ("v" in file))]
+        #self.files = [file for file in os.listdir(self.masks) if ((file in os.listdir(self.imgs)) and ("v" in file))]
         self.files = list(U.split(self.files, self.fold_div))
         #print(self.files)
 
@@ -131,7 +132,8 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
             self.dataset = self.files[actual_fold]
             print("Validation set length: {}".format(len(self.dataset)))
         elif dataset == "pre-test":
-            self.dataset = self.files[-2]
+            # Pre test not implemented actually
+            self.dataset = self.files[-1]
             print("Pre-testing set length: {}".format(len(self.dataset)))
         elif dataset == "test":
             self.dataset = self.files[-1]
