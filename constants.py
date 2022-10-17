@@ -117,7 +117,7 @@ FOLDS = 5
 # Optimiser et loss peuvent devenir des arguments
 OPTIMIZER = "Adam"
 WEIGHTING = True
-LOSS = "Dice"
+LOSS = "Tversky"
 
 MEAN = [0.78676176, 0.50835603, 0.78414893]
 STD = [0.16071789, 0.24160224, 0.12767686]
