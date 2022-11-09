@@ -85,9 +85,32 @@ TERM_NAMES = ["M1",  # 0
               "Oc2",  # 25
               "VC"]
 
-LAT_TERM_NAMES = []
+v_TERM_NAMES = ["M1", #Those only in the head
+                "M2",
+                "D1",
+                "D2",
+                "EN1",
+                "EN2",
+                "CH1",
+                "CH2",
+                "Br2a",
+                "Br2b",
+                "Br1a",
+                "Br1b",
+                "Hm1",
+                "Hm2",
+                "Op1",
+                "Op2",
+                "P",
+                "N",
+                "CB1",
+                "CB2",
+                "CL1",
+                "CL2",
+                "Oc1",
+                "Oc2"]
 
-V_TERM_NAMES = []
+LAT_TERM_NAMES = ["VC"]
 
 SEED = 1
 
@@ -99,9 +122,6 @@ LABELED = "labeled"
 MODEL = os.path.join(DIR, "models")
 PREDICT = os.path.join(DIR, "predictions")
 PLOTS = os.path.join(DIR, "plots")
-
-DO_TRAIN = True
-DO_PRED = not DO_TRAIN
 
 IMG_WIDTH = 2576
 IMG_HEIGHT = 1932
