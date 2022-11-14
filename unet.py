@@ -32,8 +32,7 @@ class Encoder(nn.Module):
         super(Encoder, self).__init__()
         self.net = nn.Sequential(
             DoubleConv(in_ch, out_ch),
-            # nn.BatchNorm2d(out_ch),    remove?
-            # nn.MaxPool2d(2)
+            # nn.BatchNorm2d(out_ch)
         )
 
     def forward(self, x):
