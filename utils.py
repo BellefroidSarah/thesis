@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
-from unet import UNET
+from unet import UNET # ATTENTION
+from unet_k3 import UNET as UNET5
 import matplotlib.pyplot as plt
 
 # https://stackoverflow.com/questions/2130016/splitting-a-list-into-n-parts-of-approximately-equal-length
@@ -27,6 +28,12 @@ def show_images(img):
     
 def load_model(filepath):
     net = UNET(3, 2)
+    net.cpu()
+    net.load_state_dict(torch.load(filepath, map_location='cpu'))
+    return net
+
+def load_k5_model(filepath):
+    net = UNET5(3, 2)
     net.cpu()
     net.load_state_dict(torch.load(filepath, map_location='cpu'))
     return net

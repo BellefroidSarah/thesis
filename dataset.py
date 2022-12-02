@@ -115,8 +115,8 @@ class ZebrafishDataset_KFold_v2(torch.utils.data.Dataset):
         self.transform = transforms.ToTensor()
         self.fold_div = folds + 1
 
-        self.files = [file for file in os.listdir(self.masks) if file in os.listdir(self.imgs)]
-        #self.files = [file for file in os.listdir(self.masks) if ((file in os.listdir(self.imgs)) and ("v" in file))]
+        #self.files = [file for file in os.listdir(self.masks) if file in os.listdir(self.imgs)]
+        self.files = [file for file in os.listdir(self.masks) if ((file in os.listdir(self.imgs)) and ("v" in file))]
         self.files = list(U.split(self.files, self.fold_div))
 
         self.dataset = []
@@ -323,11 +323,12 @@ class ZebrafishDataset_KFold_crop_head(torch.utils.data.Dataset):
         h2 = int(boxes[0, 2])+1
         v1 = int(boxes[0, 1])
         v2 = int(boxes[0, 3])+1
-        if h_length%4!=0:
-            mod = 4 - (h_length%4)
+        
+        if h_length%10!=0:
+            mod = 10 - (h_length%4)
             h_length += mod
             
-        h_length = h_length/2
+        h_length = (3*h_length)/5
         h2 = int(h1 + h_length)
             
         if v_length%2==1:

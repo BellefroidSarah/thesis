@@ -57,58 +57,58 @@ TERM_SURNAME = ["M1",
                 "Oc2",
                 "Vertebrae"]
 
-TERM_NAMES = ["M1",  # 0
-              "M2",
-              "D1",
-              "D2",
-              "aa1",
-              "aa2",  # 5
-              "EN1",
-              "EN2",
-              "CH1",
-              "CH2",
-              "Br2a",  # 10
-              "Br2b",
-              "Br1a",
-              "Br1b",
-              "Hm1",
-              "Hm2",  # 15
-              "Op1",
-              "Op2",
-              "P",
-              "N",
-              "CB1",  # 20
-              "CB2",
-              "CL1",
-              "CL2",
-              "Oc1",
-              "Oc2",  # 25
-              "VC"]
+TERM_NAMES = ["m1",  # 0
+              "m2",
+              "d1",
+              "d2",
+              #"aa1",
+              #"aa2",  # 5
+              "en1",
+              "en2",
+              "ch1",
+              "ch2",
+              "br2a",  # 10
+              "br2b",
+              "br1a",
+              "br1b",
+              "hm1",
+              "hm2",  # 15
+              "op1",
+              "op2",
+              "p",
+              "n",
+              "cb1",  # 20
+              "cb2",
+              "cl1",
+              "cl2",
+              "oc1",
+              "oc2",  # 25
+              "vc"]
 
-v_TERM_NAMES = ["M1", #Those only in the head
-                "M2",
-                "D1",
-                "D2",
-                "EN1",
-                "EN2",
-                "CH1",
-                "CH2",
-                "Br2a",
-                "Br2b",
-                "Br1a",
-                "Br1b",
-                "Hm1",
-                "Hm2",
-                "Op1",
-                "Op2",
-                "P",
-                "N",
-                "CB1",
-                "CB2",
-                "CL1",
-                "CL2",
-                "Oc1",
-                "Oc2"]
+V_TERM_NAMES = ["m1", #Those only in the head
+                "m2",
+                "d1",
+                "d2",
+                "en1",
+                "en2",
+                "ch1",
+                "ch2",
+                "br2a",
+                "br2b",
+                "br1a",
+                "br1b",
+                "hm1",
+                "hm2",
+                "op1",
+                "op2",
+                "p",
+                "n",
+                "cb1",
+                "cb2",
+                "cl1",
+                "cl2",
+                "oc1",
+                "oc2"]
 
 LAT_TERM_NAMES = ["VC"]
 
@@ -130,14 +130,14 @@ BATCH_SIZE = 4
 LEARNING_RATE = 0.0001
 MOMENTUM = 0
 WEIGHT_DECAY = 0
-EPOCHS = 1000
+EPOCHS = 250
 WORKERS = 0
 FOLDS = 5
 
 # Optimiser et loss peuvent devenir des arguments
 OPTIMIZER = "Adam"
 WEIGHTING = True
-LOSS = "Tversky"
+LOSS = "Focal"
 
 MEAN = [0.78676176, 0.50835603, 0.78414893]
 STD = [0.16071789, 0.24160224, 0.12767686]
